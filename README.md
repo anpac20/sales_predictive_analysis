@@ -12,7 +12,7 @@ Visual validation using smoothed plots for stakeholder interpretation
 The model was built using Pandas, scikit-learn, and Matplotlib, and is intended for educational purposes and as part of my portfolio.
 
 Explore the project notebook here:
-https://github.com/anpac20/sales_predictive_analysis/blob/main/sales_forecasting.ipynb
+https://github.com/anpac20/sales_predictive_analysis/blob/main/forecast.ipynb
 
 Learn more about the findings and insights:
 https://anpac20.github.io/sales_predictive_analysis/
