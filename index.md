@@ -1,25 +1,31 @@
 [Git repo](https://github.com/anpac20/sales_predictive_analysis)
 
 ## 1. Business hypothesis  
-In this project, I build a predictive model using real sales data from Favorita stores in Ecuador to estimate future sales volume. The goal is to simulate a real-world forecasting scenario where multiple data sources are combined to drive operational planning and commercial decisions.
+In this project, I simulated a real-world retail forecasting environment using sales data from Favorita stores in Ecuador to understand how different data signals contribute to operational and commercial decision-making.
 
-Key questions:
+Product & Business Hypotheses
 
-- Can sales be accurately predicted using available store and transaction-level data?
-- How much value do features like previous sales, store metadata, and oil prices add to model accuracy?
+- Can historical demand patterns significantly improve forecast accuracy compared to using only external and store-level signals?
+- How much business value do macroeconomic indicators like oil prices add to retail forecasting?
+- Can this model realistically support medium-term operational planning such as stock allocation, promotions, and logistics?
 
 ---
 
 ## 2. Results and recommendations  
 
-**Use lag features for forecasting**  
-The model without lag features (using only promotions, store info, and oil prices) reached an RMSE of **446.94**. When sales history was included (1-day and 7-day lag), error dropped to **~200**, highlighting the importance of historical demand patterns in retail forecasting.
+**1. Historical demand is the strongest driver of forecast accuracy**
 
-**Smoothed oil prices improve signal quality**  
-Using 7-day and 30-day moving averages for oil prices led to more stable model behavior. Daily oil price noise can hinder performance, especially when used as a macroeconomic proxy.
+Without lag features, the model reached an RMSE of 446.94. After introducing 1-day and 7-day lagged sales features, the error dropped to approximately 200. This confirms that short-term demand memory is critical for operational decision-making in this scenario.
 
-**Visual inspection validates prediction patterns**  
-Plots comparing actual vs predicted sales (smoothed over 7 days) reveal that the model captures overall trends, even when fine-grain fluctuations are harder to predict. This makes the approach valuable for medium-term planning (stock, campaigns, logistics).
+**2. Smoothed macroeconomic signals improve model stability** 
+
+Using 7-day and 30-day moving averages of oil prices improved prediction stability compared to using raw daily oil values.
+Use oil price trends to adjust how aggressive promotions should be: when the 30-day oil average is going up, lean more on promotions for essential products to protect volume; when it’s flat or going down, pull back on heavy discounts to protect margin.
+
+**3. Model is reliable for medium-term planning, not day-level precision** 
+
+Daily fluctuations remain noisy, but smoothed predictions track real trends accurately.
+Use the forecast for weekly planning, not daily decisions: rely on the smoothed predictions to plan weekly stock levels, promotion calendars, and regional allocation, but avoid using the model for hour-by-hour replenishment since daily noise is still too high.
 
 ---
 
